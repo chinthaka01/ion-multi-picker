@@ -228,12 +228,35 @@ var MultiPicker = (function () {
         var _this = this;
         this._text = '';
         var values = this._value.toString().split(this.separator);
+        var valueIndex = -1;
+        if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
+            switch (this.id) {
+                case 'protein':
+                    valueIndex = 0;
+                    break;
+                case 'fat':
+                    valueIndex = 1;
+                    break;
+                case 'carb':
+                    valueIndex = 2;
+                    break;
+                default:
+                    break;
+            }
+        }
         this.multiPickerColumns.forEach(function (col, index) {
             var option = col.options.find(function (option) { return option.value.toString() === values[index]; });
             if (option) {
-                _this._text += "" + option.text;
-                if (index < _this.multiPickerColumns.length - 1) {
-                    _this._text += "" + _this.separator;
+                if (valueIndex >= 0) {
+                    if (index === valueIndex) {
+                        _this._text += "" + option.text;
+                    }
+                }
+                else {
+                    _this._text += "" + option.text;
+                    if (index < _this.multiPickerColumns.length - 1) {
+                        _this._text += "" + _this.separator;
+                    }
                 }
             }
         });
