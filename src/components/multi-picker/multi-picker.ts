@@ -60,6 +60,8 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
    * @input {MultiPickerColumn} The columns display in the picker's panel.
    */
   @Input() multiPickerColumns: MultiPickerColumn[] = [];
+  
+  @Input() columnType: string = '';
 
   /**
    * @input {string} the character to separate values from different columns
