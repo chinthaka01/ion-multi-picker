@@ -61,6 +61,10 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
    */
   @Input() multiPickerColumns: MultiPickerColumn[] = [];
   
+/**
+* ADDED BY CALCEY
+   * @input {columnType} This would maintain the type of the column. (protein, fat, carb).
+   */
   @Input() columnType: string = '';
 
   /**
@@ -369,8 +373,8 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
     
     let valueIndex = -1;
     
-    if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
-      switch (this.id) {
+    if (this.columnType === 'protein' || this.columnType === 'fat' || this.columnType === 'carb') {
+      switch (this.columnType) {
         case 'protein':
           valueIndex = 0;
           break;
