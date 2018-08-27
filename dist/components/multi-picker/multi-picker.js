@@ -24,6 +24,7 @@ var MultiPicker = (function () {
         this.doneText = 'Done';
         this.resetText = 'Reset';
         this.multiPickerColumns = [];
+        this.columnType = '';
         this.separator = ' ';
         this.placeholder = '';
         this.showReset = false;
@@ -229,8 +230,8 @@ var MultiPicker = (function () {
         this._text = '';
         var values = this._value.toString().split(this.separator);
         var valueIndex = -1;
-        if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
-            switch (this.id) {
+        if (this.columnType === 'protein' || this.columnType === 'fat' || this.columnType === 'carb') {
+            switch (this.columnType) {
                 case 'protein':
                     valueIndex = 0;
                     break;
@@ -351,6 +352,7 @@ MultiPicker.propDecorators = {
     'doneText': [{ type: core_1.Input },],
     'resetText': [{ type: core_1.Input },],
     'multiPickerColumns': [{ type: core_1.Input },],
+    'columnType': [{ type: core_1.Input },],
     'separator': [{ type: core_1.Input },],
     'placeholder': [{ type: core_1.Input },],
     'showReset': [{ type: core_1.Input },],
