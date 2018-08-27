@@ -367,7 +367,7 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
     
     let valueIndex = -1;
     
-    if (this.id === 'protein' || this.id === 'fat' || this.id === 'carbs') {
+    if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
       switch (this.id) {
         case 'protein':
           valueIndex = 0;
