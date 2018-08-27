@@ -369,8 +369,8 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
     
     let valueIndex = -1;
     
-    if (this.columnType === 'protein' || this.columnType === 'fat' || this.columnType === 'carb') {
-      switch (this.columnType) {
+    if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
+      switch (this.id) {
         case 'protein':
           valueIndex = 0;
           break;
