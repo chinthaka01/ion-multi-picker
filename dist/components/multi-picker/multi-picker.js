@@ -230,8 +230,8 @@ var MultiPicker = (function () {
         this._text = '';
         var values = this._value.toString().split(this.separator);
         var valueIndex = -1;
-        if (this.columnType === 'protein' || this.columnType === 'fat' || this.columnType === 'carb') {
-            switch (this.columnType) {
+        if (this.id === 'protein' || this.id === 'fat' || this.id === 'carb') {
+            switch (this.id) {
                 case 'protein':
                     valueIndex = 0;
                     break;
