@@ -364,12 +364,36 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
   updateText() {
     this._text = '';
     let values: string[] = this._value.toString().split(this.separator);
+    
+    let valueIndex = -1;
+    
+    if (this.id === 'protein' || this.id === 'fat' || this.id === 'carbs') {
+      switch (this.id) {
+        case 'protein':
+          valueIndex = 0;
+          break;
+        case 'fat':
+          valueIndex = 1;
+          break;
+        case 'carb':
+          valueIndex = 2;
+          break;
+        default:
+          break;
+    }
+    
     this.multiPickerColumns.forEach((col, index) => {
       let option = col.options.find(option => option.value.toString() === values[index]);
       if (option) {
-        this._text += `${option.text}`;
-        if (index < this.multiPickerColumns.length - 1) {
-          this._text += `${this.separator}`;
+        if (valueIndex >= 0) {
+            if (index === valueIndex) {
+                this._text += `${option.text}`;
+            }
+        } else. {
+           this._text += `${option.text}`;
+            if (index < this.multiPickerColumns.length - 1) {
+              this._text += `${this.separator}`;
+            }
         }
       }
     });
