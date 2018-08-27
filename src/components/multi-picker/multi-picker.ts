@@ -380,6 +380,7 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
           break;
         default:
           break;
+      }
     }
     
     this.multiPickerColumns.forEach((col, index) => {
@@ -389,7 +390,7 @@ export class MultiPicker implements AfterContentInit, ControlValueAccessor, OnDe
             if (index === valueIndex) {
                 this._text += `${option.text}`;
             }
-        } else. {
+        } else {
            this._text += `${option.text}`;
             if (index < this.multiPickerColumns.length - 1) {
               this._text += `${this.separator}`;
